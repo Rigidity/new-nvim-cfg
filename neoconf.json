@@ -1,0 +1,11 @@
+{
+  "plugins": {
+    "rust_analyzer": {
+      "rust-analyzer.rustfmt.overrideCommand": [
+        "leptosfmt",
+        "--stdin",
+        "--rustfmt"
+      ]
+    }
+  }
+}
