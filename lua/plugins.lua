@@ -2,15 +2,15 @@ return {
   "tpope/vim-fugitive",
   "tpope/vim-rhubarb",
   {
-    "zbirenbaum/copilot.lua",
-    config = function()
-      require("copilot").setup({})
-    end,
+    "j-hui/fidget.nvim",
+    opts = {
+      -- options
+    },
   },
+  { "folke/which-key.nvim", opts = {} },
+  { "numToStr/Comment.nvim", opts = {} },
   {
-    "zbirenbaum/copilot-cmp",
-    config = function()
-      require("copilot_cmp").setup()
-    end,
+    "yioneko/nvim-yati",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
 }

@@ -25,15 +25,6 @@ return {
 
       lspconfig.rust_analyzer.setup({
         capabilities = capabilities,
-        ["rust-analyzer"] = {
-          checkOnSave = {
-            command = "clippy",
-          },
-          procMacro = { enable = true },
-          cargo = {
-            features = "all",
-          },
-        },
       })
       lspconfig.tsserver.setup({
         capabilities = capabilities,

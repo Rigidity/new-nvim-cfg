@@ -17,6 +17,7 @@ return {
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "ff", builtin.find_files, {})
       vim.keymap.set("n", "fg", builtin.live_grep, {})
+      vim.keymap.set("n", "fs", builtin.current_buffer_fuzzy_find, {})
 
       require("telescope").load_extension("ui-select")
     end,

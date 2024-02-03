@@ -1,11 +1,14 @@
 {
-  "plugins": {
+  "lspconfig": {
     "rust_analyzer": {
       "rust-analyzer.rustfmt.overrideCommand": [
         "leptosfmt",
         "--stdin",
         "--rustfmt"
-      ]
+      ],
+      "rust-analyzer.check.command": "clippy",
+      "rust-analyzer.procMacro.enable": true,
+      "rust-analyzer.cargo.features": "all"
     }
   }
 }
