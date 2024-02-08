@@ -11,7 +11,7 @@ return {
       },
     })
 
-    vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+    vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format)
 
     local _augroups = {}
     local get_augroup = function(client)
@@ -41,6 +41,7 @@ return {
           callback = function()
             vim.lsp.buf.format({
               async = false,
+              timeout_ms = 5000,
               filter = function(c)
                 return c.id == client.id
               end,

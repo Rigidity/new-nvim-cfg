@@ -13,6 +13,15 @@ return {
           enabled = true,
           leave_dirs_open = false,
         },
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_by_name = {
+            ".git",
+            "node_modules/",
+            ".mypy_cache",
+            ".pytest_cache",
+          },
+        },
         use_libuv_file_watcher = true,
       },
     })

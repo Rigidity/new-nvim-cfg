@@ -7,11 +7,42 @@ return {
     tag = "0.1.5",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
+      local arguments = {
+        "--hidden",
+        "--smart-case",
+        "--line-number",
+        "--color=never",
+        "--column",
+        "--no-ignore-vcs",
+        "-g",
+        "!**/.git/*",
+        "-g",
+        "!**/node_modules/*",
+        "-g",
+        "!**/target/*",
+        "-g",
+        "!**/package-lock.json",
+        "-g",
+        "!**/yarn.lock",
+        "-g",
+        "!**/Cargo.lock",
+      }
+
+      table.unpack = table.unpack or unpack -- 5.1 compatibility
+
       require("telescope").setup({
         extensions = {
           ["ui-select"] = {
             require("telescope.themes").get_dropdown({}),
           },
+        },
+        pickers = {
+          find_files = {
+            find_command = { "rg", "--files", table.unpack(arguments) },
+          },
+        },
+        defaults = {
+          vimgrep_arguments = { "rg", "--no-heading", table.unpack(arguments) },
         },
       })
       local builtin = require("telescope.builtin")
