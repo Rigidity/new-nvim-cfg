@@ -5,7 +5,21 @@ return {
     null_ls.setup({
       sources = {
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.prettier.with({
+          filetypes = {
+            "javascript",
+            "typescript",
+            "javascriptreact",
+            "typescriptreact",
+            "css",
+            "scss",
+            "html",
+            "json",
+            "yaml",
+            "markdown",
+            "toml",
+          },
+        }),
         null_ls.builtins.formatting.black,
         null_ls.builtins.diagnostics.mypy,
       },
@@ -30,6 +44,10 @@ return {
         local client_id = args.data.client_id
         local client = vim.lsp.get_client_by_id(client_id)
         local bufnr = args.buf
+
+        if client.name == "tsserver" then
+          return
+        end
 
         if not client.server_capabilities.documentFormattingProvider then
           return

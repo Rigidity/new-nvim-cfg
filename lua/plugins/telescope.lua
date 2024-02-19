@@ -15,17 +15,9 @@ return {
         "--column",
         "--no-ignore-vcs",
         "-g",
-        "!**/.git/*",
+        "!**/{.git,node_modules,target,venv,build,dist,.mypy_cache}/*",
         "-g",
-        "!**/node_modules/*",
-        "-g",
-        "!**/target/*",
-        "-g",
-        "!**/package-lock.json",
-        "-g",
-        "!**/yarn.lock",
-        "-g",
-        "!**/Cargo.lock",
+        "!**/{package-lock.json,yarn.lock,Cargo.lock}",
       }
 
       table.unpack = table.unpack or unpack -- 5.1 compatibility
